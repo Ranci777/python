@@ -1,0 +1,24 @@
+def raiz2(x0, tolerancia=1e-6, max_iter=100):
+    """
+    Aplica o método de Newton para encontrar a raiz quadrada de 2.
+
+    Parâmetros:
+    x0 : chute inicial
+    tolerancia : critério de parada com base na diferença entre iterações
+    max_iter : número máximo de iterações
+
+    Retorna:
+    Aproximação da raiz quadrada de 2
+    """
+
+    for i in range(max_iter):
+        x1 = x0 - (x0**2 - 2) / (2 * x0)  # fórmula dada
+        print(f"Iteração {i+1}: x = {x1}")
+        if abs(x1 - x0) < tolerancia:
+            return x1
+        x0 = x1
+    return x1
+
+# Exemplo de uso:
+aproximacao = raiz2(1.0)  # chute inicial = 1.0
+print(f"\nAproximação de √2: {aproximacao}")
