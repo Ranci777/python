@@ -1,0 +1,12 @@
+def kahan_sum(numbers):
+    total = 0.0
+    c = 0.0
+    for x in numbers:
+        y = x - c
+        t = total + y
+        c = (t - total) - y
+        total = t
+    return total
+
+nums = [1000.0, 0.123, 0.456, 0.789]
+print(kahan_sum(nums))  # Saída: 1001.368
